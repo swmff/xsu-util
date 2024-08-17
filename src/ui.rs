@@ -1,9 +1,9 @@
 //! Ui utilities
+use serde::{Deserialize, Serialize};
 use std::collections::HashSet;
-use serde::{Serialize, Deserialize};
 
-use pulldown_cmark::{Parser, Options};
 use ammonia::Builder;
+use pulldown_cmark::{Options, Parser};
 
 /// Render markdown input into HTML
 pub fn render_markdown(input: &str) -> String {
@@ -27,6 +27,7 @@ pub fn render_markdown(input: &str) -> String {
     allowed_attributes.insert("aria-label");
     allowed_attributes.insert("lang");
     allowed_attributes.insert("title");
+    allowed_attributes.insert("align");
 
     Builder::default()
         .generic_attributes(allowed_attributes)
