@@ -33,6 +33,7 @@ pub fn render_markdown(input: &str) -> String {
         .generic_attributes(allowed_attributes)
         .clean(&html)
         .to_string()
+        .replace("src=\"", "src=\"/util/ext/image?img=")
 }
 
 // ...
